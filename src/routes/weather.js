@@ -1,12 +1,12 @@
 const express = require("express");
-const axios = require('../utils/axios');
+const axios = require("../utils/axios");
 
 const router = express.Router();
 
 router.get("/:cc/:city", (req, res) => {
   const { cc, city } = req.params;
   axios
-    .get(`/weather?q=${city},${cc}`)
+    .get("/weather", { params: { q: `${city},${cc}` } })
     .then(response => {
       res.send(response.data);
     })
