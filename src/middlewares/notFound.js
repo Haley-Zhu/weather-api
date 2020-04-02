@@ -1,3 +1,4 @@
-module.exports = (req, res, next) => {
-  res.send("NOT FOUND");
-}
+const responseFormatter = require("../utils/responseFormatter");
+
+module.exports = (req, res, next) =>
+  responseFormatter(res, 404, "api end points not found", null);
